@@ -7,8 +7,8 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.18.0
-Release: %mkrel 2
+Version: 2.18.1
+Release: %mkrel 1
 License:          GPL/LGPL
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
@@ -116,5 +116,3 @@ if [ -x %{_bindir}/scrollkeeper-update ]; then %{_bindir}/scrollkeeper-update -q
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 %_datadir/gtk-doc/html/*
-
-
