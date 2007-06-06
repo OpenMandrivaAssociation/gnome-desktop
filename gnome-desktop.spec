@@ -7,7 +7,7 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.18.2
+Version: 2.19.3.1
 Release: %mkrel 1
 License:          GPL/LGPL
 Group:            Graphical desktop/GNOME
