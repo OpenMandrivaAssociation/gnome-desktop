@@ -7,7 +7,7 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.19.3.1
+Version: 2.19.4
 Release: %mkrel 1
 License:          GPL/LGPL
 Group:            Graphical desktop/GNOME
@@ -19,6 +19,7 @@ URL:              http://www.gnome.org
 Requires:	  libgnomeui2 >= %{req_libgnomeui_version}
 BuildRequires:    libgnomeui2-devel >= %{req_libgnomeui_version}
 BuildRequires:	  startup-notification-devel >= %{req_startup_notification_version}
+BuildRequires: gtk+2-devel >= 2.11.3
 BuildRequires:	  scrollkeeper
 BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	libxslt-proc
