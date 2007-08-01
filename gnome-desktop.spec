@@ -24,7 +24,6 @@ BuildRequires: gtk+2-devel >= 2.11.3
 BuildRequires:	  scrollkeeper
 BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	libxslt-proc
-BuildRequires:	libgcrypt-devel
 BuildRequires:    perl-XML-Parser
 
 %description
