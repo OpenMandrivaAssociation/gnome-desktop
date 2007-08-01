@@ -1,6 +1,7 @@
 %define	api_version 2
 %define lib_major   2
-%define lib_name	%mklibname %{name}-%{api_version}_ %{lib_major}
+%define libname	%mklibname %{name}-%{api_version}_ %{lib_major}
+%define libnamedev %mklibname -d %{name}-%{api_version}
 
 %define req_libgnomeui_version 2.1.0
 %define req_startup_notification_version 0.5
@@ -8,7 +9,7 @@
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
 Version: 2.19.6
-Release: %mkrel 1
+Release: %mkrel 2
 License:          GPL/LGPL
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
@@ -30,28 +31,29 @@ BuildRequires:    perl-XML-Parser
 This package contains some data files and other shared components of the
 GNOME user environment.
 
-%package -n %{lib_name}
+%package -n %{libname}
 Summary:	%{summary}
 Group:		%{group}
 Requires:   %{name} >= %{version}
 Provides:	%{name}-%{api_version} = %{version}-%{release}
 Requires: libstartup-notification-1 >= %{req_startup_notification_version}
 
-%description -n %{lib_name}
+%description -n %{libname}
 This package contains an internal library
 (libgnomedesktop) used to implement some portions of the GNOME
 desktop.
 
-%package -n %{lib_name}-devel
+%package -n %{libnamedev}
 Summary:	Static libraries, include files for gnome-desktop
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-%{api_version}-devel = %{version}-%{release}
-Requires:	%{lib_name} = %{version}
+Requires:	%{libname} = %{version}
 Requires:   libgnomeui2-devel
 Requires:   libstartup-notification-1-devel >= %{req_startup_notification_version}
+Obsoletes: %mklibname -d %{name}-2_ 2
 
-%description -n %{lib_name}-devel
+%description -n %{libnamedev}
 Static libraries, include files for internal library libgnomedesktop.
 
 %prep
@@ -86,14 +88,14 @@ ln -s %{_liconsdir}/mandrake.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/mandriva.png
 [ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ -x %{_bindir}/scrollkeeper-update ]; then %{_bindir}/scrollkeeper-update -q || true ; fi
+%update_scrollkeeper
 
 %postun
-if [ -x %{_bindir}/scrollkeeper-update ]; then %{_bindir}/scrollkeeper-update -q || true ; fi
+%clean_scrollkeeper
 
-%post -p /sbin/ldconfig -n %{lib_name}
+%post -p /sbin/ldconfig -n %{libname}
 
-%postun -p /sbin/ldconfig -n %{lib_name}
+%postun -p /sbin/ldconfig -n %{libname}
 
 %files -f %{name}-2.0.lang
 %defattr (-, root, root)
@@ -106,11 +108,11 @@ if [ -x %{_bindir}/scrollkeeper-update ]; then %{_bindir}/scrollkeeper-update -q
 %{_datadir}/applications/*
 %{_datadir}/pixmaps/*
 
-%files -n %{lib_name}
+%files -n %{libname}
 %defattr (-, root, root)
-%{_libdir}/*.so.*
+%{_libdir}/libgnome-desktop-%{api_version}.so.%{lib_major}*
 
-%files -n %{lib_name}-devel
+%files -n %{libnamedev}
 %defattr (-, root, root)
 %{_includedir}/*
 %{_libdir}/*.a
