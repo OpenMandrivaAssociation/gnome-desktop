@@ -8,8 +8,8 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.19.6
-Release: %mkrel 2
+Version: 2.19.90
+Release: %mkrel 1
 License:          GPL/LGPL
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
