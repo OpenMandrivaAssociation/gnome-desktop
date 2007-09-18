@@ -33,7 +33,7 @@ GNOME user environment.
 %package -n %{libname}
 Summary:	%{summary}
 Group:		%{group}
-Requires:   %{name} >= %{version}
+Requires:   %{name}-common >= %{version}-%{release}
 Provides:	%{name}-%{api_version} = %{version}-%{release}
 Requires: libstartup-notification-1 >= %{req_startup_notification_version}
 
@@ -54,6 +54,14 @@ Obsoletes: %mklibname -d %{name}-2_ 2
 
 %description -n %{libnamedev}
 Static libraries, include files for internal library libgnomedesktop.
+
+%package common
+Summary: Data files needed by libgnomedesktop library
+Group:	%{group}
+Conflicts: %{name} < 2.20.0-1mdv
+
+%description common
+Data files needed by libgnomedesktop library.
 
 %prep
 %setup -q
@@ -96,7 +104,7 @@ ln -s %{_liconsdir}/mandrake.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/mandriva.png
 
 %postun -p /sbin/ldconfig -n %{libname}
 
-%files -f %{name}-2.0.lang
+%files 
 %defattr (-, root, root)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_bindir}/*
@@ -119,3 +127,6 @@ ln -s %{_liconsdir}/mandrake.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/mandriva.png
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 %_datadir/gtk-doc/html/*
+
+%files common -f %{name}-2.0.lang
+%defattr (-, root, root)
