@@ -15,7 +15,6 @@ Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
 # (fc) 2.2.0.1-2mdk search in KDE 3.1 icon path
 Patch1:		  gnome-desktop-2.3.7-crystalsvg.patch
-BuildRoot:        %{_tmppath}/%{name}-%{version}-root
 URL:              http://www.gnome.org
 Requires:	  libgnomeui2 >= %{req_libgnomeui_version}
 BuildRequires:    libgnomeui2-devel >= %{req_libgnomeui_version}
