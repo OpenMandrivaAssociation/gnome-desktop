@@ -9,12 +9,14 @@
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
 Version: 2.21.2
-Release: %mkrel 1
+Release: %mkrel 2
 License:          GPL/LGPL
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
 # (fc) 2.2.0.1-2mdk search in KDE 3.1 icon path
 Patch1:		  gnome-desktop-2.3.7-crystalsvg.patch
+# (fc) 2.21.2-2mdv add new gnome-bg API (Fedora)
+Patch2:		  gnome-desktop-2.19.90-gnome-bg.patch
 URL:              http://www.gnome.org
 Requires:	  libgnomeui2 >= %{req_libgnomeui_version}
 BuildRequires:    libgnomeui2-devel >= %{req_libgnomeui_version}
@@ -65,6 +67,10 @@ Data files needed by libgnomedesktop library.
 %prep
 %setup -q
 %patch1 -p1 -b .crystalsvg
+%patch2 -p1 -b .gnome-bg
+
+#needed by patch2
+autoreconf
 
 %build
 
