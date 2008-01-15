@@ -21,6 +21,7 @@ Requires:	  libgnomeui2 >= %{req_libgnomeui_version}
 BuildRequires:    libgnomeui2-devel >= %{req_libgnomeui_version}
 BuildRequires:	  startup-notification-devel >= %{req_startup_notification_version}
 BuildRequires: gtk+2-devel >= 2.11.3
+BuildRequires: gtk-doc
 BuildRequires:	  scrollkeeper
 BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	libxslt-proc
@@ -126,7 +127,7 @@ ln -s %{_liconsdir}/mandrake.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/mandriva.png
 %attr(644,root,root) %{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
-%_datadir/gtk-doc/html/*
+%doc %_datadir/gtk-doc/html/*
 
 %files common -f %{name}-2.0.lang
 %defattr (-, root, root)
