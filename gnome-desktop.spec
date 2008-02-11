@@ -79,7 +79,7 @@ Data files needed by libgnomedesktop library.
 rm -rf $RPM_BUILD_ROOT %{name}-2.0.lang
 
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std 
-
+rm -rf %buildroot%_datadir/locale/{io,be@latin,bn_IN,si,uz@cyrillic}
 %find_lang %{name}-2.0
 for omf in %buildroot%_datadir/omf/*/{*-??.omf,*-??_??.omf};do
 echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name-2.0.lang
