@@ -8,8 +8,8 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.22.0
-Release: %mkrel 2
+Version: 2.22.2
+Release: %mkrel 1
 License:          GPL/LGPL
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
@@ -72,7 +72,7 @@ Data files needed by libgnomedesktop library.
 
 %configure2_5x --with-gnome-distributor="%vendor" --disable-scrollkeeper
 
-%make
+%make LIBS=-lm
 
 
 %install
