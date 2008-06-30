@@ -8,9 +8,9 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.22.2
+Version: 2.22.3
 Release: %mkrel 1
-License:          GPL/LGPL
+License:          GPLv2+ and LGPLv2+
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
 # (fc) 2.2.0.1-2mdk search in KDE 3.1 icon path
@@ -25,7 +25,7 @@ BuildRequires: gtk-doc
 BuildRequires:	  scrollkeeper
 BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	libxslt-proc
-BuildRequires:    perl-XML-Parser
+BuildRequires: intltool
 
 %description
 This package contains some data files and other shared components of the
