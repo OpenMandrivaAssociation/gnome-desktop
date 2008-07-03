@@ -1,5 +1,5 @@
 %define	api_version 2
-%define lib_major   2
+%define lib_major   7
 %define libname	%mklibname %{name}-%{api_version}_ %{lib_major}
 %define libnamedev %mklibname -d %{name}-%{api_version}
 
@@ -8,7 +8,7 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.22.3
+Version: 2.23.4
 Release: %mkrel 1
 License:          GPLv2+ and LGPLv2+
 Group:            Graphical desktop/GNOME
@@ -25,7 +25,7 @@ BuildRequires: gtk-doc
 BuildRequires:	  scrollkeeper
 BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	libxslt-proc
-BuildRequires: intltool
+BuildRequires:    intltool >= 0.40.0
 
 %description
 This package contains some data files and other shared components of the
