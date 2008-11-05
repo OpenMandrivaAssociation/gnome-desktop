@@ -1,5 +1,5 @@
 %define	api_version 2
-%define lib_major   7
+%define lib_major   10
 %define libname	%mklibname %{name}-%{api_version}_ %{lib_major}
 %define libnamedev %mklibname -d %{name}-%{api_version}
 
@@ -8,13 +8,11 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.24.1
-Release: %mkrel 2
+Version: 2.25.1.1
+Release: %mkrel 1
 License:          GPLv2+ and LGPLv2+
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
-# (fc) 2.2.0.1-2mdk search in KDE 3.1 icon path
-Patch1:		  gnome-desktop-2.3.7-crystalsvg.patch
 BuildRoot:        %{_tmppath}/%{name}-%{version}-root
 URL:              http://www.gnome.org
 Requires:	  libgnomeui2 >= %{req_libgnomeui_version}
@@ -66,7 +64,6 @@ Data files needed by libgnomedesktop library.
 
 %prep
 %setup -q
-%patch1 -p1 -b .crystalsvg
 
 %build
 
