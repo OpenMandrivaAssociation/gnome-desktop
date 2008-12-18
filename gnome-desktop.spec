@@ -1,5 +1,5 @@
 %define	api_version 2
-%define lib_major   10
+%define lib_major   11
 %define libname	%mklibname %{name}-%{api_version}_ %{lib_major}
 %define libnamedev %mklibname -d %{name}-%{api_version}
 
@@ -8,7 +8,7 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.25.2
+Version: 2.25.3
 Release: %mkrel 1
 License:          GPLv2+ and LGPLv2+
 Group:            Graphical desktop/GNOME
