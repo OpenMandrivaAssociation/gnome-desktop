@@ -17,6 +17,7 @@ URL:              http://www.gnome.org
 BuildRequires:	  startup-notification-devel >= %{req_startup_notification_version}
 BuildRequires: gtk+2-devel >= 2.14.0
 BuildRequires: glib2-devel >= 2.19.1
+BuildRequires: libGConf2-devel
 BuildRequires: gtk-doc
 BuildRequires:	  scrollkeeper
 BuildRequires:	gnome-doc-utils >= 0.3.2
