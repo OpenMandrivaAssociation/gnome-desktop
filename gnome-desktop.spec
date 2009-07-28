@@ -3,20 +3,17 @@
 %define libname	%mklibname %{name}-%{api_version}_ %{lib_major}
 %define libnamedev %mklibname -d %{name}-%{api_version}
 
-%define req_libgnomeui_version 2.1.0
 %define req_startup_notification_version 0.5
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.27.4
+Version: 2.27.5
 Release: %mkrel 1
 License:          GPLv2+ and LGPLv2+
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
 BuildRoot:        %{_tmppath}/%{name}-%{version}-root
 URL:              http://www.gnome.org
-Requires:	  libgnomeui2 >= %{req_libgnomeui_version}
-BuildRequires:    libgnomeui2-devel >= %{req_libgnomeui_version}
 BuildRequires:	  startup-notification-devel >= %{req_startup_notification_version}
 BuildRequires: gtk+2-devel >= 2.14.0
 BuildRequires: glib2-devel >= 2.19.1
@@ -48,7 +45,6 @@ Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-%{api_version}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}
-Requires:   libgnomeui2-devel
 Requires:   libstartup-notification-1-devel >= %{req_startup_notification_version}
 Obsoletes: %mklibname -d %{name}-2_ 2
 
@@ -132,3 +128,5 @@ ln -s %{_liconsdir}/mandrake.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/mandriva.png
 
 %files common -f %{name}-2.0.lang
 %defattr (-, root, root)
+%dir %_datadir/libgnome-desktop/
+%_datadir/libgnome-desktop/pnp.ids
