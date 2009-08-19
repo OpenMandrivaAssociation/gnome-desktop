@@ -8,7 +8,7 @@
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
 Version: 2.27.5
-Release: %mkrel 1
+Release: %mkrel 2
 License:          GPLv2+ and LGPLv2+
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
@@ -82,9 +82,6 @@ for d in `ls -1 %buildroot%_datadir/gnome/help/`; do
   %find_lang $d --with-gnome
   cat $d.lang >> %name-2.0.lang
 done
-
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/pixmaps
-ln -s %{_liconsdir}/mandrake.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/mandriva.png
 
 %clean
 [ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
