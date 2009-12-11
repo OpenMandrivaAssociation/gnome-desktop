@@ -8,10 +8,12 @@
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
 Version: 2.29.3
-Release: %mkrel 1
+Release: %mkrel 2
 License:          GPLv2+ and LGPLv2+
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
+# https://bugzilla.gnome.org/show_bug.cgi?id=600188
+Patch: gnome-desktop-check-xrandr-version.patch
 BuildRoot:        %{_tmppath}/%{name}-%{version}-root
 URL:              http://www.gnome.org
 BuildRequires:	  startup-notification-devel >= %{req_startup_notification_version}
@@ -62,6 +64,7 @@ Data files needed by libgnomedesktop library.
 
 %prep
 %setup -q
+%patch
 
 %build
 
