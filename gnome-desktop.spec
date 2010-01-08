@@ -8,7 +8,7 @@
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
 Version: 2.29.4
-Release: %mkrel 1
+Release: %mkrel 2
 License:          GPLv2+ and LGPLv2+
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
@@ -25,6 +25,7 @@ BuildRequires:	  scrollkeeper
 BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	libxslt-proc
 BuildRequires:    intltool >= 0.40.0
+BuildRequires: ldetect-lst
 
 %description
 This package contains some data files and other shared components of the
@@ -58,6 +59,7 @@ Static libraries, include files for internal library libgnomedesktop.
 Summary: Data files needed by libgnomedesktop library
 Group:	%{group}
 Conflicts: %{name} < 2.20.0-1mdv
+Requires: ldetect-lst >= 0.1.282
 
 %description common
 Data files needed by libgnomedesktop library.
@@ -68,7 +70,7 @@ Data files needed by libgnomedesktop library.
 
 %build
 
-%configure2_5x --with-gnome-distributor="%vendor" --disable-scrollkeeper
+%configure2_5x --with-gnome-distributor="%vendor" --disable-scrollkeeper --with-pnp-ids-path=%{_datadir}/misc/pnp.ids
 
 %make LIBS=-lm
 
@@ -129,5 +131,3 @@ done
 
 %files common -f %{name}-2.0.lang
 %defattr (-, root, root)
-%dir %_datadir/libgnome-desktop/
-%_datadir/libgnome-desktop/pnp.ids
