@@ -7,13 +7,11 @@
 
 Summary:          Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:             gnome-desktop
-Version: 2.29.91
+Version: 2.29.92
 Release: %mkrel 1
 License:          GPLv2+ and LGPLv2+
 Group:            Graphical desktop/GNOME
 Source0:          http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/%{name}-%{version}.tar.bz2
-# https://bugzilla.gnome.org/show_bug.cgi?id=600188
-Patch: gnome-desktop-check-xrandr-version.patch
 BuildRoot:        %{_tmppath}/%{name}-%{version}-root
 URL:              http://www.gnome.org
 BuildRequires:	  startup-notification-devel >= %{req_startup_notification_version}
@@ -66,7 +64,6 @@ Data files needed by libgnomedesktop library.
 
 %prep
 %setup -q
-%patch
 
 %build
 
@@ -80,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT %{name}-2.0.lang
 
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std 
 %find_lang %{name}-2.0
-for omf in %buildroot%_datadir/omf/*/{*-??.omf,*-??_??.omf};do
+for omf in %buildroot%_datadir/omf/*/{*-??.omf,*-??_??.omf,*-???.omf};do
 echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name-2.0.lang
 done
 for d in `ls -1 %buildroot%_datadir/gnome/help/`; do
