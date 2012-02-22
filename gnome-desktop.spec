@@ -81,7 +81,6 @@ done
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_bindir}/*
 %dir %{_datadir}/omf/*
-%{_datadir}/omf/*/*-C.omf
 %{_datadir}/gnome-about
 %{_datadir}/applications/*
 %{_datadir}/pixmaps/*
