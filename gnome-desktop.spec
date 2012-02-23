@@ -80,7 +80,7 @@ done
 %files -f %{name}-2.0.lang
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_bindir}/*
-%dir %{_datadir}/omf/*
+%dir %{_datadir}/omf
 %{_datadir}/gnome-about
 %{_datadir}/applications/*
 %{_datadir}/pixmaps/*
