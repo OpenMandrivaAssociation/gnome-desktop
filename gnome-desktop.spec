@@ -69,9 +69,6 @@ GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 %find_lang %{name}-2.0
 find %{buildroot} -name '*.la' -delete
 
-for omf in %{buildroot}%{_datadir}/omf/*/{*-??.omf,*-??_??.omf,*-???.omf};do
-echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%{buildroot}!!)" >> %{name}-2.0.lang
-done
 for d in `ls -1 %{buildroot}%{_datadir}/gnome/help/`; do
   %find_lang $d --with-gnome
   cat $d.lang >> %{name}-2.0.lang
@@ -80,7 +77,6 @@ done
 %files -f %{name}-2.0.lang
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_bindir}/*
-%dir %{_datadir}/omf
 %{_datadir}/gnome-about
 %{_datadir}/applications/*
 %{_datadir}/pixmaps/*
