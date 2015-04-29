@@ -1,2 +1,4 @@
+removed_sources:
+  gnome-desktop-2.32.1.tar.bz2: 95767b6696ebc406b4349b383366b9aff32e39f4
 sources:
-  "gnome-desktop-2.32.1.tar.bz2": 95767b6696ebc406b4349b383366b9aff32e39f4
+  gnome-desktop-3.16.1.tar.xz: 41d31e3dc2d2345ea254c29f390e6b155567784e
