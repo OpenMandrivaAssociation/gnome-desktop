@@ -1,16 +1,17 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
+%define _disable_rebuild_configure 1
 
 %define	appver	3
 %define api	3.0
-%define major	10
+%define major	12
 %define libname	%mklibname %{name} %{appver} %{major}
 %define girname	%mklibname %{name}-gir %{api}
 %define devname	%mklibname -d %{name} %{appver}
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	3.16.1
-Release:	3
+Version:	3.18.1
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org
