@@ -10,7 +10,7 @@
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	3.18.1
+Version:	3.18.2
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -81,7 +81,7 @@ Development libraries, include files for internal library %{name}.
 %make LIBS='-lrt -lgmodule-2.0'
 
 %install
-%makeinstall_std 
+%makeinstall_std
 %find_lang %{name}-%{api} --with-gnome --all-name
 
 %files -f %{name}-%{api}.lang
