@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xkeyboard-config)
 BuildRequires:	iso-codes
+BuildRequires:	pkgconfig(libseccomp)
 Requires:	ldetect-lst >= 0.1.282
 Conflicts:	gnome-desktop-common < 2.32.1-2
 Conflicts:	%{_lib}gnome-desktop3_4 < 3.6.2-2
