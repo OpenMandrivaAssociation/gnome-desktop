@@ -17,7 +17,7 @@ Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 
-BuildRequires:	gtk-doc
+#BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	ldetect-lst
