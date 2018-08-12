@@ -3,21 +3,21 @@
 
 %define	appver	3
 %define api	3.0
-%define major	12
+%define major	17
 %define libname	%mklibname %{name} %{appver} %{major}
 %define girname	%mklibname %{name}-gir %{api}
 %define devname	%mklibname -d %{name} %{appver}
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	3.18.2
+Version:	3.28.2
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 
-BuildRequires:	gtk-doc
+#BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	ldetect-lst
@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xkeyboard-config)
 BuildRequires:	iso-codes
+BuildRequires:	pkgconfig(libseccomp)
 Requires:	ldetect-lst >= 0.1.282
 Conflicts:	gnome-desktop-common < 2.32.1-2
 Conflicts:	%{_lib}gnome-desktop3_4 < 3.6.2-2
