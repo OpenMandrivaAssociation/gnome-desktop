@@ -10,7 +10,7 @@
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	3.30.1
+Version:	3.30.2
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -32,6 +32,7 @@ BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xkeyboard-config)
+BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	iso-codes
 BuildRequires:	pkgconfig(libseccomp)
 Requires:	ldetect-lst >= 0.1.282
