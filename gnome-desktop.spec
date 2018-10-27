@@ -32,6 +32,7 @@ BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xkeyboard-config)
+BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	iso-codes
 BuildRequires:	pkgconfig(libseccomp)
 Requires:	ldetect-lst >= 0.1.282
