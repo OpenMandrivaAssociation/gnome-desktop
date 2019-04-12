@@ -10,18 +10,21 @@
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	3.30.2.1
+Version:	3.32.1
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 
-#BuildRequires:	gtk-doc
+BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	ldetect-lst
+BuildRequires:	gettext
+BuildRequires:	meson
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
+BuildRequires:	pkgconfig(gio-2.0) >= 2.19.1
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
@@ -33,11 +36,13 @@ BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xkeyboard-config)
 BuildRequires:	pkgconfig(iso-codes)
+BuildRequires:	pkgconfig(libudev)
 BuildRequires:	iso-codes
 BuildRequires:	pkgconfig(libseccomp)
+BuildRequires:	yelp-tools
 Requires:	ldetect-lst >= 0.1.282
-Conflicts:	gnome-desktop-common < 2.32.1-2
-Conflicts:	%{_lib}gnome-desktop3_4 < 3.6.2-2
+#Obsoletes:	gnome-desktop3 < 3.30.2
+#Obsoletes:	gnome-desktop-common < 2.32.1-11
 %rename 	gnome-desktop3
 
 %description
@@ -70,20 +75,31 @@ Requires:	%{girname} = %{version}-%{release}
 %description -n %{devname}
 Development libraries, include files for internal library %{name}.
 
+%package  tests
+Summary:        Tests for the %{name} package
+Group:          Development/GNOME and GTK+
+Requires:       %{name} = %{version}-%{release}
+
+%description tests
+The %{name}-tests package contains tests that can be used to verify
+the functionality of the installed %{name} package.
+
+
 %prep
 %setup -qn %{name}-%{version}
 
 %build
-%configure \
-	--disable-static \
-	--with-gnome-distributor="%{_vendor}" \
-	--disable-scrollkeeper \
-	--with-pnp-ids-path=%{_datadir}/misc/pnp.ids
-
-%make LIBS='-lrt -lgmodule-2.0'
+%meson \
+	-Dgnome-distributor="%{_vendor}" \
+	-Dgtk_doc=true \
+	-Dinstalled_tests=true
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
+
+#make LIBS='-lrt -lgmodule-2.0'
+
 %find_lang %{name}-%{api} --with-gnome --all-name
 
 %files -f %{name}-%{api}.lang
@@ -103,4 +119,8 @@ Development libraries, include files for internal library %{name}.
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 %{_datadir}/gir-1.0/GnomeDesktop-%{api}.gir
+
+%files tests
+%{_libexecdir}/installed-tests/%{name}/
+%{_datadir}/installed-tests/%{name}
 
