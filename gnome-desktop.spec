@@ -88,7 +88,7 @@ Development libraries, include files for internal library %{name}.
 %install
 %meson_install
 
-#%make LIBS='-lrt -lgmodule-2.0'
+#make LIBS='-lrt -lgmodule-2.0'
 
 %find_lang %{name}-%{api} --with-gnome --all-name
 
