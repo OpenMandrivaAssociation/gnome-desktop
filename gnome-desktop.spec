@@ -75,6 +75,16 @@ Requires:	%{girname} = %{version}-%{release}
 %description -n %{devname}
 Development libraries, include files for internal library %{name}.
 
+%package  tests
+Summary:        Tests for the %{name} package
+Group:          Development/GNOME and GTK+
+Requires:       %{name} = %{version}-%{release}
+
+%description tests
+The %{name}-tests package contains tests that can be used to verify
+the functionality of the installed %{name} package.
+
+
 %prep
 %setup -qn %{name}-%{version}
 
@@ -109,4 +119,8 @@ Development libraries, include files for internal library %{name}.
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 %{_datadir}/gir-1.0/GnomeDesktop-%{api}.gir
+
+%files tests
+%{_libexecdir}/installed-tests/%{name}/
+%{_datadir}/installed-tests/%{name}
 
