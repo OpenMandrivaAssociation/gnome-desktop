@@ -41,7 +41,7 @@ BuildRequires:	iso-codes
 BuildRequires:	pkgconfig(libseccomp)
 BuildRequires:	yelp-tools
 Requires:	ldetect-lst >= 0.1.282
-Provides:	gnome-desktop3 = %{version}-%{release}
+#Provides:	gnome-desktop3 = %{version}-%{release}
 Obsoletes:	gnome-desktop3 < 3.30.2
 Obsoletes:	gnome-desktop-common < 2.32.1-11
 %rename 	gnome-desktop3
