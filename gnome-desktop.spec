@@ -41,9 +41,8 @@ BuildRequires:	iso-codes
 BuildRequires:	pkgconfig(libseccomp)
 BuildRequires:	yelp-tools
 Requires:	ldetect-lst >= 0.1.282
-#Provides:	gnome-desktop3 = %{version}-%{release}
-Obsoletes:	gnome-desktop3 < 3.30.2
-Obsoletes:	gnome-desktop-common < 2.32.1-11
+#Obsoletes:	gnome-desktop3 < 3.30.2
+#Obsoletes:	gnome-desktop-common < 2.32.1-11
 %rename 	gnome-desktop3
 
 %description
@@ -89,10 +88,8 @@ Development libraries, include files for internal library %{name}.
 %install
 %meson_install
 
-%make LIBS='-lrt -lgmodule-2.0'
+#%make LIBS='-lrt -lgmodule-2.0'
 
-%install
-%makeinstall_std
 %find_lang %{name}-%{api} --with-gnome --all-name
 
 %files -f %{name}-%{api}.lang
