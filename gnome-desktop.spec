@@ -10,7 +10,7 @@
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	3.30.2.1
+Version:	3.32.1
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -21,7 +21,10 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{ver
 BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	ldetect-lst
+BuildRequires:	gettext
+BuildRequires:	meson
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
+BuildRequires:	pkgconfig(gio-2.0) >= 2.19.1
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
@@ -33,11 +36,14 @@ BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xkeyboard-config)
 BuildRequires:	pkgconfig(iso-codes)
+BuildRequires:	pkgconfig(libudev)
 BuildRequires:	iso-codes
 BuildRequires:	pkgconfig(libseccomp)
+BuildRequires:	yelp-tools
 Requires:	ldetect-lst >= 0.1.282
-Conflicts:	gnome-desktop-common < 2.32.1-2
-Conflicts:	%{_lib}gnome-desktop3_4 < 3.6.2-2
+Provides:	gnome-desktop3 = %{version}-%{release}
+Obsoletes:	gnome-desktop3 < 3.30.2
+Obsoletes:	gnome-desktop-common < 2.32.1-11
 %rename 	gnome-desktop3
 
 %description
@@ -74,11 +80,15 @@ Development libraries, include files for internal library %{name}.
 %setup -qn %{name}-%{version}
 
 %build
-%configure \
-	--disable-static \
-	--with-gnome-distributor="%{_vendor}" \
-	--disable-scrollkeeper \
-	--with-pnp-ids-path=%{_datadir}/misc/pnp.ids
+%build
+%meson \
+	-Dgnome-distributor="%{_vendor}" \
+	-Dgtk_doc=true \
+	-Dinstalled_tests=true
+%meson_build
+
+%install
+%meson_install
 
 %make LIBS='-lrt -lgmodule-2.0'
 
