@@ -37,6 +37,7 @@ BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xkeyboard-config)
 BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	pkgconfig(libudev)
+BuildRequires:  pkgconfig(libsystemd)
 BuildRequires:	iso-codes
 BuildRequires:	pkgconfig(libseccomp)
 BuildRequires:	yelp-tools
