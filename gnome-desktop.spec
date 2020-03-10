@@ -3,7 +3,7 @@
 
 %define	appver	3
 %define api	3.0
-%define major	18
+%define major	19
 %define libname	%mklibname %{name} %{appver} %{major}
 %define girname	%mklibname %{name}-gir %{api}
 %define devname	%mklibname -d %{name} %{appver}
