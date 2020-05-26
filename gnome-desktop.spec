@@ -26,7 +26,7 @@ BuildRequires:	meson
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gio-2.0) >= 2.19.1
 BuildRequires:	pkgconfig(glib-2.0)
-BuildRequires:	pkgconfig(gnome-doc-utils)
+#BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gsettings-desktop-schemas)
 BuildRequires:	pkgconfig(gtk+-3.0)
