@@ -10,7 +10,7 @@
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	3.38.5
+Version:	40.0
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -104,10 +104,9 @@ the functionality of the installed %{name} package.
 %find_lang %{name}-%{api} --with-gnome --all-name
 
 %files -f %{name}-%{api}.lang
-%doc AUTHORS COPYING ChangeLog NEWS README
+%doc AUTHORS COPYING NEWS README.md
 %{_datadir}/gnome/gnome-version.xml
-%{_libexecdir}/gnome-rr-debug
-
+%{_libexecdir}/gnome-desktop-debug
 %files -n %{libname}
 %{_libdir}/libgnome-desktop-%{appver}.so.%{major}*
 
