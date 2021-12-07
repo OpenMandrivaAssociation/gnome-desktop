@@ -91,7 +91,7 @@ the functionality of the installed %{name} package.
 
 %build
 %meson \
-	-Dgnome-distributor="%{_vendor}" \
+	-Dgnome_distributor="%{_vendor}" \
 	-Dgtk_doc=true \
 	-Dinstalled_tests=true
 %meson_build
