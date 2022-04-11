@@ -11,9 +11,9 @@
 %define girname	%mklibname %{name}-gir %{api}
 %define devname	%mklibname -d %{name} %{appver}
 #-----------------------------------------------
-%define libname4 %mklibname %{name} %{appver} %{major}
+%define libname4 %mklibname %{name} %{appver4} %{major}
 %define girname4 %mklibname %{name}-gir %{api4}
-%define devname4 %mklibname -d %{name} %{appver}
+%define devname4 %mklibname -d %{name} %{appver4}
 
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
