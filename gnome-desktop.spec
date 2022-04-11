@@ -12,7 +12,7 @@
 %define devname	%mklibname -d %{name} %{appver}
 #-----------------------------------------------
 %define libname4 %mklibname %{name} %{appver} %{major}
-%Define girname4 %mklibname %{name}-gir %{api4}
+%define girname4 %mklibname %{name}-gir %{api4}
 %define devname4 %mklibname -d %{name} %{appver}
 
 
