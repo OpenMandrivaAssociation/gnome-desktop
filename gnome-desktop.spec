@@ -5,6 +5,7 @@
 %define	appver	3
 %define api4	4.0
 %define api	3.0
+%define major4	1
 %define major	19
 #-----------------------------------------------
 %define libname	%mklibname %{name} %{appver} %{major}
@@ -51,8 +52,11 @@ BuildRequires:	iso-codes
 BuildRequires:	pkgconfig(libseccomp)
 BuildRequires:	yelp-tools
 Requires:	ldetect-lst >= 0.1.282
-#Obsoletes:	gnome-desktop3 < 3.30.2
-#Obsoletes:	gnome-desktop-common < 2.32.1-11
+Requires:	%{libname} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
+Requires:	%{libname4} = %{version}-%{release}
+Requires:	%{girname4} = %{version}-%{release}
+
 %rename 	gnome-desktop3
 
 %description
@@ -146,9 +150,9 @@ the functionality of the installed %{name} package.
 %{_libdir}/libgnome-desktop-%{appver}.so.%{major}*
 
 %files -n %{libname4}
-%{_libdir}/libgnome-bg-%{appver4}.so.%{major}*
-%{_libdir}/libgnome-desktop-%{appver4}.so.%{major}*
-%{_libdir}/libgnome-rr-%{appver4}.so.%{major}*
+%{_libdir}/libgnome-bg-%{appver4}.so.%{major4}*
+%{_libdir}/libgnome-desktop-%{appver4}.so.%{major4}*
+%{_libdir}/libgnome-rr-%{appver4}.so.%{major4}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/GnomeDesktop-%{api}.typelib
