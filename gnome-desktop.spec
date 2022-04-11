@@ -1,16 +1,24 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
+%define	appver4	4
 %define	appver	3
+%define api4	4.0
 %define api	3.0
 %define major	19
+#-----------------------------------------------
 %define libname	%mklibname %{name} %{appver} %{major}
 %define girname	%mklibname %{name}-gir %{api}
 %define devname	%mklibname -d %{name} %{appver}
+#-----------------------------------------------
+%define libname4 %mklibname %{name} %{appver} %{major}
+%Define girname4 %mklibname %{name}-gir %{api4}
+%define devname4 %mklibname -d %{name} %{appver}
+
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	41.3
+Version:	42.0
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -30,6 +38,7 @@ BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gsettings-desktop-schemas)
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(gtk4)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xrandr)
@@ -58,14 +67,30 @@ Group:		System/Libraries
 This package contains an internal library
 (libgnomedesktop) used to implement some portions of the GNOME
 desktop.
+#-----------------------------------------------
+%package -n %{libname4}
+Summary:	%{summary}
+Group:		System/Libraries
 
+%description -n %{libname4}
+This package contains an internal library
+(libgnomedesktop) used to implement some portions of the GNOME
+desktop.
+#-----------------------------------------------
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
+#-----------------------------------------------
+%package -n %{girname4}
+Summary:	GObject Introspection interface description for %{name}
+Group:		System/Libraries
 
+%description -n %{girname4}
+GObject Introspection interface description for %{name}.
+#-----------------------------------------------
 %package -n %{devname}
 Summary:	Development libraries, include files for %{name}
 Group:		Development/GNOME and GTK+
@@ -75,7 +100,17 @@ Requires:	%{girname} = %{version}-%{release}
 
 %description -n %{devname}
 Development libraries, include files for internal library %{name}.
+#-----------------------------------------------
+%package -n %{devname4}
+Summary:	Development libraries, include files for %{name}
+Group:		Development/GNOME and GTK+
+Provides:	%{name}4-devel = %{version}-%{release}
+Requires:	%{libname4} = %{version}-%{release}
+Requires:	%{girname4} = %{version}-%{release}
 
+%description -n %{devname4}
+Development libraries, include files for internal library %{name}.
+#-----------------------------------------------
 %package  tests
 Summary:        Tests for the %{name} package
 Group:          Development/GNOME and GTK+
@@ -84,7 +119,7 @@ Requires:       %{name} = %{version}-%{release}
 %description tests
 The %{name}-tests package contains tests that can be used to verify
 the functionality of the installed %{name} package.
-
+#-----------------------------------------------
 
 %prep
 %setup -qn %{name}-%{version}
@@ -110,15 +145,30 @@ the functionality of the installed %{name} package.
 %files -n %{libname}
 %{_libdir}/libgnome-desktop-%{appver}.so.%{major}*
 
+%files -n %{libname4}
+%{_libdir}/libgnome-bg-%{appver4}.so.%{major}*
+%{_libdir}/libgnome-desktop-%{appver4}.so.%{major}*
+%{_libdir}/libgnome-rr-%{appver4}.so.%{major}*
+
 %files -n %{girname}
 %{_libdir}/girepository-1.0/GnomeDesktop-%{api}.typelib
 
+%files -n %{girname4}
+%{_libdir}/girepository-1.0/Gnome*-%{api4}.typelib
+
 %files -n %{devname}
 %doc %{_datadir}/gtk-doc/html/*
-%{_includedir}/*
-%{_libdir}/*.so
-%{_libdir}/pkgconfig/*
+%{_libdir}/libgnome-desktop-%{appver}.so
+%{_libdir}/pkgconfig/gnome-desktop-%{api}.pc
+%{_includedir}/gnome-desktop-%{api}
 %{_datadir}/gir-1.0/GnomeDesktop-%{api}.gir
+
+%files -n %{devname4}
+%doc %{_datadir}/gtk-doc/html/*
+%{_libdir}/libgnome-*-%{appver4}.so
+%{_libdir}/pkgconfig/gnome-*-%{appver4}.pc
+%{_includedir}/gnome-desktop-%{api4}
+%{_datadir}/gir-1.0/Gnome*-%{api4}.gir
 
 %files tests
 %{_libexecdir}/installed-tests/%{name}/
