@@ -12,7 +12,7 @@
 %define girname	%mklibname %{name}-gir %{api}
 %define devname	%mklibname -d %{name} %{appver}
 #-----------------------------------------------
-%define libname4 %mklibname %{name} %{appver4} %{major}
+%define libname4 %mklibname %{name} %{appver4} %{major4}
 %define girname4 %mklibname %{name}-gir %{api4}
 %define devname4 %mklibname -d %{name} %{appver4}
 
@@ -20,7 +20,7 @@
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
 Version:	42.0
-Release:	1
+Release:	2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org
