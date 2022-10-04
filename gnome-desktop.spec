@@ -6,7 +6,7 @@
 %define api4	4.0
 %define api	3.0
 %define major4	1
-%define major	19
+%define major	20
 #-----------------------------------------------
 %define libname	%mklibname %{name} %{appver} %{major}
 %define girname	%mklibname %{name}-gir %{api}
@@ -19,7 +19,7 @@
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	42.4
+Version:	43
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
