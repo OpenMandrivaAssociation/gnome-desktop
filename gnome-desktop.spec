@@ -5,7 +5,7 @@
 %define	appver	3
 %define api4	4.0
 %define api	3.0
-%define major4	1
+%define major4	2
 %define major	20
 #-----------------------------------------------
 %define libname	%mklibname %{name} %{appver} %{major}
