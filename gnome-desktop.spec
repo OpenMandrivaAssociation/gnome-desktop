@@ -5,8 +5,8 @@
 %define	appver	3
 %define api4	4.0
 %define api	3.0
-%define major4	1
-%define major	19
+%define major4	2
+%define major	20
 #-----------------------------------------------
 %define libname	%mklibname %{name} %{appver} %{major}
 %define girname	%mklibname %{name}-gir %{api}
@@ -19,7 +19,7 @@
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	42.4
+Version:	43
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -131,7 +131,6 @@ the functionality of the installed %{name} package.
 
 %build
 %meson \
-	-Dgnome_distributor="%{_vendor}" \
 	-Dgtk_doc=true \
 	-Dinstalled_tests=true
 %meson_build
@@ -145,7 +144,6 @@ the functionality of the installed %{name} package.
 
 %files -f %{name}-%{api}.lang
 %doc AUTHORS COPYING NEWS README.md
-%{_datadir}/gnome/gnome-version.xml
 %{_libexecdir}/gnome-desktop-debug
 %files -n %{libname}
 %{_libdir}/libgnome-desktop-%{appver}.so.%{major}*
