@@ -20,11 +20,11 @@
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
 Version:	44.0
-Release:	4
+Release:	5
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
-URL:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+URL:		https://www.gnome.org
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
