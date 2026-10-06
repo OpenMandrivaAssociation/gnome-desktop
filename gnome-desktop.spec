@@ -11,14 +11,12 @@
 #-----------------------------------------------
 %define libname	%mklibname %{name} %{appver}
 %define oldlibname %mklibname %{name} %{appver} 20
-%define girname	%mklibname %{name}-gir
-%define oldgirname %mklibname %{name}-gir 3.0
+%define girname	%mklibname %{name}-gir %{api}
 %define devname	%mklibname -d %{name} %{appver}
 #-----------------------------------------------
 %define libname4 %mklibname %{name} %{appver4}
 %define oldlibname4 %mklibname %{name} %{appver4} 2
-%define girname4 %mklibname %{name}-gir
-%define oldgirname4 %mklibname %{name}-gir 4.0
+%define girname4 %mklibname %{name}-gir %{api4}
 %define devname4 %mklibname -d %{name} %{appver4}
 
 
@@ -92,7 +90,6 @@ desktop.
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
-%rename %{oldgirname}
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
@@ -100,7 +97,6 @@ GObject Introspection interface description for %{name}.
 %package -n %{girname4}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
-%rename %{oldgirname4}
 
 %description -n %{girname4}
 GObject Introspection interface description for %{name}.
