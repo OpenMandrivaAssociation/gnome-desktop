@@ -6,7 +6,8 @@
 %define api4	4.0
 %define api	3.0
 %define major4	2
-%define major	20
+%define major	21
+%define qrmajor 0
 #-----------------------------------------------
 %define libname	%mklibname %{name} %{appver} %{major}
 %define girname	%mklibname %{name}-gir %{api}
@@ -19,8 +20,8 @@
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
-Version:	44.5
-Release:	3
+Version:	51.0
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		https://www.gnome.org
@@ -151,7 +152,8 @@ the functionality of the installed %{name} package.
 %files -n %{libname4}
 %{_libdir}/libgnome-bg-%{appver4}.so.%{major4}*
 %{_libdir}/libgnome-desktop-%{appver4}.so.%{major4}*
-%{_libdir}/libgnome-rr-%{appver4}.so.%{major4}*
+%{_libdir}/libgnome-qr-%{appver4}.so.%{qrmajor}{,.*}
+%{_libdir}/libgnome-qr-gtk-%{appver4}.so.%{qrmajor}{,.*}
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/GnomeDesktop-%{api}.typelib
