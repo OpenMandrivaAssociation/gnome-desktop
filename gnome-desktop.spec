@@ -9,19 +9,23 @@
 %define major	21
 %define qrmajor 0
 #-----------------------------------------------
-%define libname	%mklibname %{name} %{appver} %{major}
-%define girname	%mklibname %{name}-gir %{api}
+%define libname	%mklibname %{name} %{appver}
+%define oldlibname %mklibname %{name} %{appver} 20
+%define girname	%mklibname %{name}-gir
+%define oldgirname %mklibname %{name}-gir 3.0
 %define devname	%mklibname -d %{name} %{appver}
 #-----------------------------------------------
-%define libname4 %mklibname %{name} %{appver4} %{major4}
-%define girname4 %mklibname %{name}-gir %{api4}
+%define libname4 %mklibname %{name} %{appver4}
+%define oldlibname4 %mklibname %{name} %{appver4} 2
+%define girname4 %mklibname %{name}-gir
+%define oldgirname4 %mklibname %{name}-gir 4.0
 %define devname4 %mklibname -d %{name} %{appver4}
 
 
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
 Version:	51.0
-Release:	1
+Release:	2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		https://www.gnome.org
@@ -68,6 +72,7 @@ GNOME user environment.
 %package -n %{libname}
 Summary:	%{summary}
 Group:		System/Libraries
+%rename %{oldlibname}
 
 %description -n %{libname}
 This package contains an internal library
@@ -77,6 +82,7 @@ desktop.
 %package -n %{libname4}
 Summary:	%{summary}
 Group:		System/Libraries
+%rename %{oldlibname4}
 
 %description -n %{libname4}
 This package contains an internal library
@@ -86,6 +92,7 @@ desktop.
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
+%rename %{oldgirname}
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
@@ -93,6 +100,7 @@ GObject Introspection interface description for %{name}.
 %package -n %{girname4}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
+%rename %{oldgirname4}
 
 %description -n %{girname4}
 GObject Introspection interface description for %{name}.
