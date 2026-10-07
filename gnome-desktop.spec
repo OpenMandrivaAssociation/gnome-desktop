@@ -138,8 +138,8 @@ the functionality of the installed %{name} package.
 	-Dintrospection=false \
 	-Dudev=disabled \
 	-Dsystemd=disabled \
-	-Dbuild_gtk4=false \
-	-Dlegacy_library=true
+	-Dbuild_gtk4=true \
+	-Dlegacy_library=false
 %meson_build
 
 %install
@@ -162,10 +162,10 @@ the functionality of the installed %{name} package.
 %{_libdir}/libgnome-rr-%{appver4}.so.%{major4}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/GnomeDesktop-%{api}.typelib
+#{_libdir}/girepository-1.0/GnomeDesktop-%{api}.typelib
 
 %files -n %{girname4}
-%{_libdir}/girepository-1.0/Gnome*-%{api4}.typelib
+#{_libdir}/girepository-1.0/Gnome*-%{api4}.typelib
 
 %files -n %{devname}
 %doc %{_datadir}/gtk-doc/html/*
@@ -182,6 +182,6 @@ the functionality of the installed %{name} package.
 %{_datadir}/gir-1.0/Gnome*-%{api4}.gir
 
 %files tests
-%{_libexecdir}/installed-tests/%{name}/
-%{_datadir}/installed-tests/%{name}
+#{_libexecdir}/installed-tests/%{name}/
+#{_datadir}/installed-tests/%{name}
 
