@@ -20,7 +20,7 @@
 Summary:	Package containing code shared among gnome-panel, gnome-session, nautilus, etc
 Name:		gnome-desktop
 Version:	44.5
-Release:	3
+Release:	100
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		https://www.gnome.org
@@ -131,8 +131,15 @@ the functionality of the installed %{name} package.
 
 %build
 %meson \
-	-Dgtk_doc=true \
-	-Dinstalled_tests=true
+	-Dgtk_doc=false \
+	-Dinstalled_tests=false \
+	-Ddesktop_docs=false \
+	-Ddebug_tools=false \
+	-Dintrospection=false \
+	-Dudev=disabled \
+	-Dsystemd=disabled \
+	-Dbuild_gtk4=false \
+	-Dlegacy_library=true
 %meson_build
 
 %install
