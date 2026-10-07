@@ -139,7 +139,7 @@ the functionality of the installed %{name} package.
 	-Dudev=disabled \
 	-Dsystemd=disabled \
 	-Dbuild_gtk4=true \
-	-Dlegacy_library=false
+	-Dlegacy_library=true
 %meson_build
 
 %install
