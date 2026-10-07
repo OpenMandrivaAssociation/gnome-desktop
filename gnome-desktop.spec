@@ -151,7 +151,8 @@ the functionality of the installed %{name} package.
 
 %files -f %{name}-%{api}.lang
 %doc AUTHORS COPYING NEWS README.md
-%{_libexecdir}/gnome-desktop-debug
+#{_libexecdir}/gnome-desktop-debug
+
 %files -n %{libname}
 %{_libdir}/libgnome-desktop-%{appver}.so.%{major}*
 
