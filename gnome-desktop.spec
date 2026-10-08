@@ -137,7 +137,7 @@ the functionality of the installed %{name} package.
 	-Ddebug_tools=false \
 	-Dintrospection=false \
 	-Dudev=disabled \
-	-Dsystemd=disabled \
+	-Dsystemd=enabled \
 	-Dbuild_gtk4=true \
 	-Dlegacy_library=true
 %meson_build
